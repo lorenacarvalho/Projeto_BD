@@ -79,4 +79,28 @@ public class HistoricoObjDAO {
         }
 }
      
+     public void update(HistoricoObj his, HistoricoObj his2) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("UPDATE HistoricoObj_tb SET Objeto = ?, numPatrimonio = ?, statusObjeto = ?, responsable = ?, motivo = ?, usu = ? WHERE dt NOW()= ?;");
+            stmt.setString(1,his2.getObjeto());
+            stmt.setInt(1,his2.getNumPatrimonio());
+            stmt.setString(1,his2.getStatusObjeto());
+            stmt.setString(1,his2.getResponsable());
+            stmt.setString(1,his2.getMotivo());
+            stmt.setString(1,his2.getUsu());
+            stmt.setDate(2,his.getDt());
+            
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Atualização feita com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con,stmt);
+        }
+    }
+     
 }
