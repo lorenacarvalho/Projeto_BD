@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}@autor: Jaqueline Ribeiro, Lorena Nascimento e Sarah Cabral
+${licensePrefix}Controle Patrimonial
+<#if licenseLast??>
+${licenseLast}
+</#if>
