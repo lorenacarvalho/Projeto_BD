@@ -74,7 +74,27 @@ public class LicitacaoDAO {
         }   
     }
     
-    
+public void update(Licitacao li, Licitacao li2) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("UPDATE licitacao_tb SET Objeto = ?, fornecedor = ?, preco = ? WHERE codEdital= ?;");
+            stmt.setString(1,li2.getObjeto());
+            stmt.setInt(1,li2.Fornecedor());
+            stmt.setDouble(1,li2.preco());
+            stmt.setDate(2,li.getCodEdital());
+            
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Atualização feita com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con,stmt);
+        }
+    }
+
     
     
     
