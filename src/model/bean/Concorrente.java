@@ -14,7 +14,7 @@ public class Concorrente {
  
         public String nomeEmpresa;
         public int idEmpresa;
-        public int num;
+        
 
         public Concorrente(String nomeEmpresa, int idEmpresa) {
         this.nomeEmpresa = nomeEmpresa;
